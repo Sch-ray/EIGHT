@@ -154,7 +154,7 @@ Then disconnect the USB cable, power off the device, and power it on again. The 
 ![Step_10](./Step/stop.jpg)
 
 > [!WARNING]
-> During the device startup process, do not connect the device to a computer. Otherwise, the device may enter download mode instead of running the internal user firmware.
+> During the device startup process, do not connect the device's TypeC. Otherwise, the device may enter download mode instead of running the internal user firmware.
 
 ### Appendix: Charging Current
 
