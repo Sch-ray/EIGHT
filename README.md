@@ -9,6 +9,34 @@ This is the public repository for the **EIGHT** project. More files and resource
 > [!IMPORTANT]
 > **Disclaimer:** This device is intended **only** for lawful technical learning, research, analysis, and testing by qualified users. *(You should know exactly what you're doing.)*
 
+### Quick Start
+
+##### 1. Power Control
+
+- A button is located on the right side of the device.
+- **Press once** to power on the device.
+- **Press twice** to power off the device.
+
+---
+
+##### 2. Indicator LEDs
+
+Three indicator LEDs are located on the left side of the device. From top to bottom, they are:
+
+1. **System**
+2. **Charging**
+3. **Positioning**
+
+The status indications are described below:
+
+| Indicator | Color | On | Off | Flashing |
+|------------|--------|----|-----|----------|
+| **System** | Green | Device powered on | Device powered off | Brief and rapid flashing during touch interaction or normal operation |
+| **Charging** | Red | Battery charging | Charging completed | Battery fully charged and the system is being powered via USB |
+| **Positioning** | Blue |  | Looking for signals | Positioning successful |
+
+---
+
 ### Software Support
 
 The EIGHT device is compatible with **JustCallMeKoko's ESP32 Marauder V8 firmware**.

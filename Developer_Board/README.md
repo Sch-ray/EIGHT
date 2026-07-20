@@ -90,61 +90,71 @@ Finally, thread the included lanyard through the hole at the lower-right corner 
 
 ![Step_8](./Step/rope.jpg)
 
-### Firmware Flashing and Debugging
+### Firmware Flashing and Debugging Guide:
 
-**1. Connect the Device to Your Computer**
+**1. Connect to the Computer**
 
-The board includes an onboard **CH340 USB-to-UART** chip and is powered through USB.
+The device is equipped with a CH340 chip and uses USB power. Therefore, regardless of whether the device is powered on or off, once you connect the device to a computer via a USB cable, a new COM port will appear. Through this COM port, you can perform firmware development, flashing, debugging, and other operations.
 
-Whether the device is powered on or off, connecting it to your computer with a USB cable will create a new **COM port**. This port can be used for firmware flashing, development, and serial debugging.
+If no COM port appears on your computer, first check whether your USB cable supports data transmission. Then check whether the CH340 driver has been installed correctly.
 
-If no COM port appears:
+You can download the CH340 driver here: [Driver](https://www.wch-ic.com/downloads/CH341SER_ZIP.html)
 
-- Make sure your USB cable supports data transfer (not charging only).
-- Verify that the CH340 driver is installed on your computer.
+**2. Prepare the Flashing Tool**
 
-CH340 Driver Download:
+You can use the official flashing tool provided by ESP32 for firmware flashing, or use other software with similar functions. In this guide, I will demonstrate using the official tool.
 
-[Driver](https://www.wch-ic.com/downloads/CH341SER_ZIP.html)
+First, prepare **ESP32DownloadTool**.
 
-**2. Flash the Firmware**
+You can download ESP32DownloadTool here: [DownloadTool](https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32/production_stage/tools/flash_download_tool.html)
 
-You can flash firmware using the **ESP32 Download Tool**.
+Then prepare the firmware you want to flash.
 
-Prepare the firmware files you want to flash, then open **ESP32DownloadTool**.
+The **EIGHT** device is compatible with the **Marauder V8 firmware** developed by JustCallMekoko.
 
-Set:
+[Marauder V8 Firmware](https://github.com/justcallmekoko/ESP32Marauder)
 
-- **ChipType:** ESP32C5
-- Leave all other options at their default values.
+At the same time, we are also working on a Chinese translation based on this firmware. You can find the latest Chinese firmware here:
+
+[Chinese Firmware](./Chinese_Firmware)
+
+After opening ESP32DownloadTool, select **ESP32C5** as the **ChipType**, and keep all other options at their default settings.
 
 ![Step_5](./Step/ChipType.jpg)
 
-Select the required firmware files (bootloader, firmware, etc.) in the file selection area and configure their corresponding flash addresses.
+In the firmware selection area above, select the required files such as **bootloader**, **firmware**, etc., and configure their corresponding addresses.
 
-Select the newly created COM port in the lower-right corner.
+In the bottom-right corner, select the newly appeared COM port.
 
-Set the **BAUD** rate to the **highest available value**. **Be sure to select the highest baud rate—this is important.**
+In the bottom-right corner, set the **BAUD** rate to the maximum value. Make sure to select the highest baud rate (this is important).
 
 ![Step_6](./Step/download.jpg)
 
-ESP32 Download Tool:
+**3. Flashing the Firmware**
 
-[DownloadTool](https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32/production_stage/tools/flash_download_tool.html)
+Please note: the device must remain powered off before starting.
 
-Keep the device powered **off**.
+First, click the **"START"** button in ESP32DownloadTool. The status will change to **"SYNC"**.
 
-Click **START** in ESP32DownloadTool. The software will enter a waiting state.
+![Step_9](./Step/sync.jpg)
 
-Now press the device's power button **once**. Flashing will begin automatically and typically takes around **10 seconds**.
+At this moment, power on the device. The program will automatically detect the device and start flashing the firmware.
 
-After flashing is complete:
+The flashing process takes approximately 10 seconds. After completion, the status will display **FINISH**.
 
-1. Disconnect the USB cable.
-2. Power the device off.
-3. Power it on again.
+<div>
+  <img src="./Step/downloadover.jpg" alt="Step_10" width="45%">
+  <img src="./Step/finish.jpg" alt="Step_11" width="45%">
+</div>
 
-The newly flashed firmware should now start running.
+After confirming that the flashing process is complete, click **"STOP"**.
+
+Then disconnect the USB cable, power off the device, and power it on again. The newly flashed firmware will now start running.
+
+![Step_10](./Step/stop.jpg)
+
+> [!WARNING]
+> During the device startup process, do not connect the device to a computer. Otherwise, the device may enter download mode instead of running the internal user firmware.
 
 ### Appendix: Charging Current
 
